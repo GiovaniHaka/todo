@@ -36,6 +36,15 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  rx_notifier:
+  get_it:
+  go_router:
+  intl:
+  dartz:
+  device_info_plus:
+  google_fonts:
+  file_picker:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
