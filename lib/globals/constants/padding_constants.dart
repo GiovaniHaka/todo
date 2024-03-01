@@ -1,0 +1,11 @@
+const double verySmallPadding = 8;
+const double smallPadding = 12;
+const double regularPadding = 16;
+const double mediumPadding = 20;
+const double largePadding = 24;
+const double viewPadding = 16;
+const double verySmallButtonPadding = 8;
+const double smallButtonPadding = 10;
+const double regularButtonPadding = 15;
+const double mediumButtonPadding = 17;
+const double largeButtonPadding = 20;
