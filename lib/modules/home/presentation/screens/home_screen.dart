@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/modules/todos/todo_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,12 +9,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void handleCreateTodo() {
+    TodoRouter.goCreateTodo(context);
   }
 
   @override
@@ -23,22 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Minhas tarefas'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
+      body: Center(),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: handleCreateTodo,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
