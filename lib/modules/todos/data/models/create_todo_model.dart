@@ -1,3 +1,5 @@
+import 'package:todo/globals/helpers/timestamp_converter.dart';
+
 class CreateTodoModel {
   final String deviceId;
   final String title;
@@ -10,10 +12,12 @@ class CreateTodoModel {
   });
 
   toMap() {
+    final timestamp = TimestampConverter.toJson(date);
+
     return {
       'deviceId': deviceId,
       'title': title,
-      'date': date.millisecondsSinceEpoch,
+      'date': timestamp,
     };
   }
 }

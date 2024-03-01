@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 
 import 'package:todo/globals/constants/padding_constants.dart';
 import 'package:todo/globals/keys/snackbar_key.dart';
 import 'package:todo/globals/messages/messages.dart';
+import 'package:todo/globals/states/onze_state.dart';
 import 'package:todo/globals/ui/app_bars/onze_app_bar.dart';
 import 'package:todo/globals/ui/app_bars/onze_bottom_app_bar.dart';
 import 'package:todo/globals/ui/buttons/onze_filled_button.dart';
@@ -11,6 +13,7 @@ import 'package:todo/globals/ui/form_fields/onze_unfocuser.dart';
 import 'package:todo/globals/ui/separators/separators.dart';
 import 'package:todo/globals/ui/snackbars/onze_snackbars.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
+import 'package:todo/globals/ui/views/loading_view.dart';
 import 'package:todo/globals/validators/onze_validator.dart';
 import 'package:todo/modules/todos/presentation/create_todo/controllers/create_todo_controller.dart';
 
@@ -56,44 +59,56 @@ class CreateTodoScreen extends StatelessWidget {
         appBar: OnzeAppBar(
           titleText: Messages.instance.lang.createTodo,
         ),
-        body: CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: const EdgeInsets.all(viewPadding),
-              sliver: Form(
-                key: formKey,
-                child: SliverList.list(
-                  children: [
-                    Text(
-                      Messages.instance.lang.details,
-                      style: OnzeTextStyle.headlineMedium(),
-                    ),
-                    const VerticalSeparator.medium(),
-                    OnzeTextFormField(
-                      labelText: Messages.instance.lang.title,
-                      hintText: Messages.instance.lang.hintTodoTitle,
-                      controller: titleController,
-                      validator: OnzeValidator.emptyOrNull,
-                    ),
-                    const VerticalSeparator.medium(),
-                    CalendarDatePicker(
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime.now().add(const Duration(days: 365)),
-                      onDateChanged: onChangeDate,
-                    ),
-                  ],
+        body: RxBuilder(builder: (context) {
+          final state = createTodoController.state;
+
+          if (state is Loading) {
+            return const LoadingView();
+          }
+
+          return CustomScrollView(
+            slivers: [
+              SliverPadding(
+                padding: const EdgeInsets.all(viewPadding),
+                sliver: Form(
+                  key: formKey,
+                  child: SliverList.list(
+                    children: [
+                      Text(
+                        Messages.instance.lang.details,
+                        style: OnzeTextStyle.headlineMedium(),
+                      ),
+                      const VerticalSeparator.medium(),
+                      OnzeTextFormField(
+                        labelText: Messages.instance.lang.title,
+                        hintText: Messages.instance.lang.hintTodoTitle,
+                        controller: titleController,
+                        validator: OnzeValidator.emptyOrNull,
+                      ),
+                      const VerticalSeparator.medium(),
+                      CalendarDatePicker(
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime.now(),
+                        lastDate: DateTime.now().add(const Duration(days: 365)),
+                        onDateChanged: onChangeDate,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
-        ),
-        bottomNavigationBar: OnzeBottomAppBar(
-          child: OnzeFilledButton.primary(
-            text: Messages.instance.lang.buttonCreateTodo,
-            onTap: handleCreate,
-          ),
-        ),
+              )
+            ],
+          );
+        }),
+        bottomNavigationBar: RxBuilder(builder: (context) {
+          final isLoading = createTodoController.state is Loading;
+          return OnzeBottomAppBar(
+            child: OnzeFilledButton.primary(
+              text: Messages.instance.lang.buttonCreateTodo,
+              onTap: handleCreate,
+              isLoading: isLoading,
+            ),
+          );
+        }),
       ),
     );
   }
