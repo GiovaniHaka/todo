@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/core/apps/todo_app_router.dart';
+import 'package:todo/globals/keys/snackbar_key.dart';
 
 final router = TodoAppRouter().router;
 
@@ -17,6 +18,7 @@ class TodoApp extends StatelessWidget {
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
+      scaffoldMessengerKey: snackbarKey,
     );
   }
 }

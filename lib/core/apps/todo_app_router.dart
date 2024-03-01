@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo/globals/ui/screens/route_not_found_screen.dart';
 import 'package:todo/modules/home/presentation/screens/home_screen.dart';
+import 'package:todo/modules/todos/todo_router.dart';
 
 class TodoAppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -20,6 +21,9 @@ class TodoAppRouter {
         builder: (context, state) {
           return const HomeScreen();
         },
+        routes: [
+          ...TodoRouter.routes,
+        ],
       ),
     ],
   );

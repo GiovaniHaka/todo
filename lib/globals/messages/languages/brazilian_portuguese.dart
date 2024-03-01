@@ -15,4 +15,28 @@ class BrazilianPortuguese implements Language {
 
   @override
   String get buttonPickImage => 'Escolher imagem';
+
+  @override
+  String get createTodo => 'Criar tarefa';
+
+  @override
+  String get hintTodoTitle => 'Preencha o título da tarefa';
+
+  @override
+  String get todo => 'Tarefa';
+
+  @override
+  String get todos => 'Tarefas';
+
+  @override
+  String get title => 'Título';
+
+  @override
+  String get buttonCreateTodo => 'Criar tarefa';
+
+  @override
+  String get validatorEmptyOrNull => 'Este campo não pode ser vazio.';
+
+  @override
+  String get details => 'Detalhes';
 }
