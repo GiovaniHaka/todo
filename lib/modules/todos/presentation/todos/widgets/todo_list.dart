@@ -6,12 +6,14 @@ import 'package:todo/modules/todos/presentation/todos/widgets/todo_item.dart';
 
 class TodoList extends StatelessWidget {
   final List<TodoEntity> todos;
-  final ValueChanged<TodoEntity> onTodoTap;
+  final ValueChanged<TodoEntity> onTapTodo;
+  final ValueChanged<TodoEntity> onTapDeleteTodo;
 
   const TodoList({
     Key? key,
     required this.todos,
-    required this.onTodoTap,
+    required this.onTapTodo,
+    required this.onTapDeleteTodo,
   }) : super(key: key);
 
   @override
@@ -23,6 +25,8 @@ class TodoList extends StatelessWidget {
 
         return TodoItem(
           todo: todo,
+          onTapDelete: onTapDeleteTodo,
+          onTapTodo: onTapTodo,
         );
       },
       separatorBuilder: (context, index) => const Divider(

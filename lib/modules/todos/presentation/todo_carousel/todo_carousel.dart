@@ -7,10 +7,12 @@ class TodoCarousel extends StatelessWidget {
   final List<TodoEntity> todos;
   final EdgeInsets? itemPadding;
   final double height;
+  final ValueChanged<TodoEntity> onTapCompleteTodo;
 
   const TodoCarousel({
     Key? key,
     required this.todos,
+    required this.onTapCompleteTodo,
     this.itemPadding,
     this.height = 200,
   }) : super(key: key);
@@ -24,6 +26,7 @@ class TodoCarousel extends StatelessWidget {
             child: TodoCarouselItem(
               key: Key(todo.id),
               todo: todo,
+              onTapCompleteTodo: onTapCompleteTodo,
             ),
           ),
         )
