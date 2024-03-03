@@ -5,6 +5,7 @@ import 'package:todo/modules/todos/data/mappers/create_todo_mapper.dart';
 import 'package:todo/modules/todos/data/mappers/todo_mapper.dart';
 import 'package:todo/modules/todos/domain/entities/create_todo_entity.dart';
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
+import 'package:todo/modules/todos/domain/enums/todo_status.dart';
 import 'package:todo/modules/todos/domain/repositories/todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
@@ -44,6 +45,21 @@ class TodoRepositoryImpl implements TodoRepository {
       );
     } catch (e, s) {
       yield Left(Failure(error: e, stackTrace: s));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> updateStatus({
+    required String id,
+    required TodoStatus status,
+  }) async {
+    try {
+      return await _todoDataSource.updateStatus(
+        id: id,
+        status: status,
+      );
+    } catch (e, s) {
+      return Left(Failure(error: e, stackTrace: s));
     }
   }
 }
