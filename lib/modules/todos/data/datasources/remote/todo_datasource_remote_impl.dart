@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:todo/globals/failures/failure.dart';
@@ -36,8 +34,6 @@ class TodoDatasourceRemoteImpl implements TodoDatasource {
           .snapshots()
           .map(
         (snapshot) {
-          log('Called');
-
           if (snapshot.docs.isEmpty) {
             return const Right([]);
           }

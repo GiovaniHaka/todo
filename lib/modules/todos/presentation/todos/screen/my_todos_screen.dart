@@ -4,6 +4,7 @@ import 'package:todo/globals/messages/messages.dart';
 import 'package:todo/globals/states/onze_state.dart';
 import 'package:todo/globals/ui/views/failure_view.dart';
 import 'package:todo/globals/ui/views/loading_view.dart';
+import 'package:todo/modules/todos/presentation/todo_carousel/todo_carousel.dart';
 
 import 'package:todo/modules/todos/presentation/todos/controllers/my_todos_controller.dart';
 import 'package:todo/modules/todos/presentation/todos/widgets/todo_list.dart';
@@ -51,9 +52,34 @@ class _MyTodosScreenState extends State<MyTodosScreen> {
           if (state is Loaded) {
             final todos = state.data;
 
-            return TodoList(
-              todos: todos,
-              onTodoTap: (todo) {},
+            return Column(
+              children: [
+                Builder(builder: (context) {
+                  if (todos.isEmpty) {
+                    return const SizedBox();
+                  }
+
+                  final pendingTodos = todos.reversed
+                      .where((todo) => todo.isPending)
+                      .toList()
+                      .take(3)
+                      .toList();
+
+                  if (pendingTodos.isEmpty) {
+                    return const SizedBox();
+                  }
+
+                  return TodoCarousel(
+                    todos: pendingTodos,
+                  );
+                }),
+                Expanded(
+                  child: TodoList(
+                    todos: todos,
+                    onTodoTap: (todo) {},
+                  ),
+                ),
+              ],
             );
           }
 
