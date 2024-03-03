@@ -1,4 +1,5 @@
 import 'package:todo/globals/helpers/timestamp_converter.dart';
+import 'package:todo/modules/todos/domain/enums/todo_status.dart';
 
 class CreateTodoModel {
   final String deviceId;
@@ -18,6 +19,7 @@ class CreateTodoModel {
       'deviceId': deviceId,
       'title': title,
       'date': timestamp,
+      'status': TodoStatus.pending.status,
     };
   }
 }

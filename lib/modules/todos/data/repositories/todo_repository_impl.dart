@@ -2,7 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:todo/globals/failures/failure.dart';
 import 'package:todo/modules/todos/data/datasources/todo_datasource.dart';
 import 'package:todo/modules/todos/data/mappers/create_todo_mapper.dart';
+import 'package:todo/modules/todos/data/mappers/todo_mapper.dart';
 import 'package:todo/modules/todos/domain/entities/create_todo_entity.dart';
+import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
 import 'package:todo/modules/todos/domain/repositories/todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
@@ -20,6 +22,28 @@ class TodoRepositoryImpl implements TodoRepository {
       return await _todoDataSource.createTodo(model);
     } catch (e, s) {
       return Left(Failure(error: e, stackTrace: s));
+    }
+  }
+
+  @override
+  Stream<Either<Failure, List<TodoEntity>>> streamTodos(
+    String deviceId,
+  ) async* {
+    try {
+      yield* _todoDataSource.streamTodos(deviceId).map(
+        (event) {
+          return event.fold(
+            (failure) => Left(failure),
+            (models) {
+              final entities = models.map(TodoMapper.toEntity).toList();
+
+              return Right(entities);
+            },
+          );
+        },
+      );
+    } catch (e, s) {
+      yield Left(Failure(error: e, stackTrace: s));
     }
   }
 }

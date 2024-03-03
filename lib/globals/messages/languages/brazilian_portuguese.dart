@@ -39,4 +39,14 @@ class BrazilianPortuguese implements Language {
 
   @override
   String get details => 'Detalhes';
+
+  @override
+  String get failureDefaultMessage =>
+      'Não foi possível carregar as informações no momento. Por favor, tente novamente mais tarde ou entre em contato com o desenvolvedor.';
+
+  @override
+  String get failureTitle => 'Algo deu errado.';
+
+  @override
+  String get emptyTodos => 'Você não tem tarefas cadastradas.';
 }

@@ -101,6 +101,7 @@ class CreateTodoScreen extends StatelessWidget {
         }),
         bottomNavigationBar: RxBuilder(builder: (context) {
           final isLoading = createTodoController.state is Loading;
+          
           return OnzeBottomAppBar(
             child: OnzeFilledButton.primary(
               text: Messages.instance.lang.buttonCreateTodo,
