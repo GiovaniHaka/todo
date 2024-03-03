@@ -9,9 +9,7 @@ class OnzeDeviceInfoService {
 
   late DeviceInfoEntity deviceInfo;
 
-  OnzeDeviceInfoService() {
-    initialize();
-  }
+  OnzeDeviceInfoService();
 
   initialize() async {
     deviceInfo = await getDeviceInfo();

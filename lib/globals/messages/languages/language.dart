@@ -22,4 +22,11 @@ abstract class Language {
   
   /// [Validators]
   String get validatorEmptyOrNull;
+
+  /// [Failure]
+  String get failureTitle;
+  String get failureDefaultMessage;
+
+  /// [Empty]
+  String get emptyTodos;
 }
