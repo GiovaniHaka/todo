@@ -12,4 +12,8 @@ class TodoEntity {
     required this.date,
     required this.status,
   });
+
+  bool get isCompleted => status == TodoStatus.completed;
+
+  bool get isPending => status == TodoStatus.pending;
 }

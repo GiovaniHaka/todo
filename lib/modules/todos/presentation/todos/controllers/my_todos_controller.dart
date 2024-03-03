@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 import 'package:todo/globals/failures/failure.dart';
@@ -24,7 +22,6 @@ class MyTodosController {
   OnzeState<List<TodoEntity>> get todos => _todos.value;
 
   initialize() {
-    log('Initialized');
     _subscription = _streamTodos.call().listen(
           (value) => _setTodos(value),
         );
