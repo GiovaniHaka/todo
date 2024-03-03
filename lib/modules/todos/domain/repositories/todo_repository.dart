@@ -9,6 +9,8 @@ abstract class TodoRepository {
 
   Stream<Either<Failure, List<TodoEntity>>> streamTodos(String deviceId);
 
+  Future<Either<Failure, void>> delete(String todoId);
+
   Future<Either<Failure, void>> updateStatus({
     required String id,
     required TodoStatus status,

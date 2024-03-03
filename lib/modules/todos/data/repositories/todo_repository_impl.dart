@@ -62,4 +62,13 @@ class TodoRepositoryImpl implements TodoRepository {
       return Left(Failure(error: e, stackTrace: s));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> delete(String todoId) async {
+    try {
+      return await _todoDataSource.delete(todoId);
+    } catch (e, s) {
+      return Left(Failure(error: e, stackTrace: s));
+    }
+  }
 }

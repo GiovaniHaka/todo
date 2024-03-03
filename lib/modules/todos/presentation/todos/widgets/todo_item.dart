@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo/core/binders/binder.dart';
 import 'package:todo/globals/constants/padding_constants.dart';
+import 'package:todo/globals/ui/buttons/onze_icon_button.dart';
 import 'package:todo/globals/ui/separators/separators.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
@@ -9,6 +10,7 @@ import 'package:todo/globals/ui/switchs/todo_check_switch.dart';
 
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
 import 'package:todo/modules/todos/domain/enums/todo_status.dart';
+import 'package:todo/modules/todos/presentation/todos/controllers/delete_todo_controller.dart';
 import 'package:todo/modules/todos/presentation/todos/controllers/update_todo_status_controller.dart';
 
 class TodoItem extends StatelessWidget {
@@ -26,6 +28,7 @@ class TodoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final updateStatusController = getIt<UpdateTodoStatusController>();
+    final deleteTodoController = getIt<DeleteTodoController>();
 
     final isCompleted = todo.status == TodoStatus.completed;
 
@@ -44,6 +47,11 @@ class TodoItem extends StatelessWidget {
         id: todo.id,
         status: newStatus,
       );
+    }
+
+    handleDelete() {
+      
+      deleteTodoController.deleteById(id: todo.id);
     }
 
     return InkWell(
@@ -82,6 +90,12 @@ class TodoItem extends StatelessWidget {
                   ]
                 ],
               ),
+            ),
+            const HorizontalSeparator.small(),
+            OnzeIconButton(
+              icon: Icons.delete,
+              foregroundColor: OnzeColors.greyLight,
+              onTap: handleDelete,
             ),
           ],
         ),
