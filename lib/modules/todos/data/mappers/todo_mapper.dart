@@ -8,6 +8,7 @@ class TodoMapper {
       title: entity.title,
       date: entity.date,
       status: entity.status,
+      imageUrl: entity.imageUrl,
     );
   }
 }

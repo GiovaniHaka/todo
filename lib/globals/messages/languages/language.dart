@@ -7,6 +7,7 @@ abstract class Language {
   String get buttonBackToHome;
   String get buttonCreateTodo;
   String get buttonPickImage;
+  String get buttonRemove;
 
   /// [Create]
   String get createTodo;
@@ -19,7 +20,7 @@ abstract class Language {
 
   /// [Hints]
   String get hintTodoTitle;
-  
+
   /// [Validators]
   String get validatorEmptyOrNull;
 

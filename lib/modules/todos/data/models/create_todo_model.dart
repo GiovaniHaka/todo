@@ -5,11 +5,13 @@ class CreateTodoModel {
   final String deviceId;
   final String title;
   final DateTime date;
+  final String? imageUrl;
 
   CreateTodoModel({
     required this.deviceId,
     required this.title,
     required this.date,
+    this.imageUrl,
   });
 
   toMap() {
@@ -20,6 +22,7 @@ class CreateTodoModel {
       'title': title,
       'date': timestamp,
       'status': TodoStatus.pending.status,
+      'imageUrl': imageUrl,
     };
   }
 }

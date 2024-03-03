@@ -14,7 +14,7 @@ class TodoCarousel extends StatelessWidget {
     required this.todos,
     required this.onTapCompleteTodo,
     this.itemPadding,
-    this.height = 200,
+    this.height = 250,
   }) : super(key: key);
 
   @override
