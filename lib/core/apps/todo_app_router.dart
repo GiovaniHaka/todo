@@ -22,6 +22,8 @@ class TodoAppRouter {
         builder: (context, state) {
           return MyTodosScreen(
             controller: getIt.get(),
+            updateStatusController: getIt.get(),
+            deleteTodoController: getIt.get(),
           );
         },
         routes: [

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo/core/binders/binder.dart';
 import 'package:todo/globals/constants/padding_constants.dart';
 import 'package:todo/globals/ui/buttons/onze_icon_button.dart';
 import 'package:todo/globals/ui/separators/separators.dart';
@@ -9,53 +8,33 @@ import 'package:todo/globals/ui/styles/onze_text_style.dart';
 import 'package:todo/globals/ui/switchs/todo_check_switch.dart';
 
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
-import 'package:todo/modules/todos/domain/enums/todo_status.dart';
-import 'package:todo/modules/todos/presentation/todos/controllers/delete_todo_controller.dart';
-import 'package:todo/modules/todos/presentation/todos/controllers/update_todo_status_controller.dart';
 
 class TodoItem extends StatelessWidget {
-  final VoidCallback? onTap;
-  final ValueChanged<bool>? onChangeStatus;
+  final ValueChanged<TodoEntity>? onTapTodo;
+  final ValueChanged<TodoEntity>? onTapDelete;
   final TodoEntity todo;
 
   const TodoItem({
     Key? key,
     required this.todo,
-    this.onChangeStatus,
-    this.onTap,
+    this.onTapTodo,
+    this.onTapDelete,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final updateStatusController = getIt<UpdateTodoStatusController>();
-    final deleteTodoController = getIt<DeleteTodoController>();
-
-    final isCompleted = todo.status == TodoStatus.completed;
+    final isCompleted = todo.isCompleted;
 
     handleUpdateStatus() {
-      final currentStatus = todo.status;
-
-      TodoStatus newStatus;
-
-      if (currentStatus == TodoStatus.completed) {
-        newStatus = TodoStatus.pending;
-      } else {
-        newStatus = TodoStatus.completed;
-      }
-
-      updateStatusController.updateTodoStatus(
-        id: todo.id,
-        status: newStatus,
-      );
+      onTapTodo?.call(todo);
     }
 
     handleDelete() {
-      
-      deleteTodoController.deleteById(id: todo.id);
+      onTapDelete?.call(todo);
     }
 
     return InkWell(
-      onTap: onTap,
+      onTap: handleUpdateStatus,
       child: Padding(
         padding: const EdgeInsets.all(regularPadding),
         child: Row(
