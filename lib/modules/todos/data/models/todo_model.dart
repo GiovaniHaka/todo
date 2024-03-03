@@ -6,12 +6,14 @@ class TodoModel {
   final String title;
   final DateTime date;
   final TodoStatus status;
+  final String? imageUrl;
 
   TodoModel({
     required this.id,
     required this.title,
     required this.date,
     required this.status,
+    this.imageUrl,
   });
 
   factory TodoModel.fromMap(Map<String, dynamic> map) {
@@ -20,6 +22,7 @@ class TodoModel {
       title: map['title'],
       date: TimestampConverter.fromJson(map['date']),
       status: TodoStatus.fromString(map['status']),
+      imageUrl: map['imageUrl'],
     );
   }
 }

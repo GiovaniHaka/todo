@@ -3,6 +3,7 @@ import 'package:todo/globals/failures/failure.dart';
 import 'package:todo/globals/states/onze_state.dart';
 import 'package:todo/modules/todos/domain/usecases/create_todo_usecase.dart';
 import 'package:rx_notifier/rx_notifier.dart';
+import 'package:todo/services/file_picker/domain/models/picked_file_entity.dart';
 
 class CreateTodoController {
   final CreateTodoUsecase _createTodoUsecase;
@@ -17,6 +18,7 @@ class CreateTodoController {
   Future<Either<Failure, void>> createTodo({
     required String title,
     required DateTime date,
+    required PickedFile? file,
   }) async {
     try {
       _state.value = Loading();
@@ -24,6 +26,7 @@ class CreateTodoController {
       final result = await _createTodoUsecase(
         date: date,
         title: title,
+        file: file,
       );
 
       return result.fold(

@@ -49,4 +49,7 @@ class BrazilianPortuguese implements Language {
 
   @override
   String get emptyTodos => 'Você não tem tarefas cadastradas.';
+
+  @override
+  String get buttonRemove => 'Remover';
 }

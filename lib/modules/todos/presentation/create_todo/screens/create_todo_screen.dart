@@ -16,6 +16,8 @@ import 'package:todo/globals/ui/styles/onze_text_style.dart';
 import 'package:todo/globals/ui/views/loading_view.dart';
 import 'package:todo/globals/validators/onze_validator.dart';
 import 'package:todo/modules/todos/presentation/create_todo/controllers/create_todo_controller.dart';
+import 'package:todo/services/file_picker/domain/models/picked_file_entity.dart';
+import 'package:todo/services/file_picker/presentation/select_file_form_field.dart';
 
 class CreateTodoScreen extends StatelessWidget {
   final CreateTodoController createTodoController;
@@ -29,10 +31,15 @@ class CreateTodoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     final titleController = TextEditingController();
+    PickedFile? pickedFile;
     DateTime date = DateTime.now();
 
     onChangeDate(DateTime val) {
       date = val;
+    }
+
+    onChooseFile(PickedFile? val) {
+      pickedFile = val;
     }
 
     handleCreate() async {
@@ -43,12 +50,18 @@ class CreateTodoScreen extends StatelessWidget {
       }
 
       createTodoController
-          .createTodo(title: titleController.text, date: date)
+          .createTodo(
+        title: titleController.text,
+        date: date,
+        file: pickedFile,
+      )
           .then(
         (value) {
           value.fold(
-            (l) => OnzeErrorSnackBar(message: l.message).show(snackbarKey),
-            (r) => Navigator.of(context).pop(),
+            (failure) => OnzeErrorSnackBar(
+              message: failure.message,
+            ).show(snackbarKey),
+            (success) => Navigator.of(context).pop(),
           );
         },
       );
@@ -92,6 +105,10 @@ class CreateTodoScreen extends StatelessWidget {
                         lastDate: DateTime.now().add(const Duration(days: 365)),
                         onDateChanged: onChangeDate,
                       ),
+                      const VerticalSeparator.medium(),
+                      SelectFileTypeModal(
+                        onChangeFile: onChooseFile,
+                      )
                     ],
                   ),
                 ),
@@ -101,7 +118,7 @@ class CreateTodoScreen extends StatelessWidget {
         }),
         bottomNavigationBar: RxBuilder(builder: (context) {
           final isLoading = createTodoController.state is Loading;
-          
+
           return OnzeBottomAppBar(
             child: OnzeFilledButton.primary(
               text: Messages.instance.lang.buttonCreateTodo,

@@ -7,6 +7,7 @@ class CreateTodoMapper {
       deviceId: entity.deviceId,
       title: entity.title,
       date: entity.date,
+      imageUrl: entity.imageUrl,
     );
   }
 }

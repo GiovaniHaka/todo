@@ -33,6 +33,7 @@ class TodoBinder implements Binder {
       () => CreateTodoUsecaseImpl(
         deviceInfoService: getIt.get(),
         repository: getIt.get(),
+        uploadSingleFile: getIt.get(),
       ),
     );
 
