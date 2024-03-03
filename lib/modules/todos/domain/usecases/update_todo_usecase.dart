@@ -10,6 +10,7 @@ abstract class UpdateTodoUsecase {
   });
 }
 
+/// Classe que implementa o caso de uso de atualização de um todo.
 class UpdateTodoUsecaseImpl implements UpdateTodoUsecase {
   final TodoRepository _repository;
 

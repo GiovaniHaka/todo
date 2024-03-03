@@ -3,6 +3,7 @@ import 'package:todo/globals/constants/padding_constants.dart';
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
 import 'package:todo/modules/todos/presentation/todo_carousel/todo_carousel_item.dart';
 
+/// Classe que representa um carrossel de todos.
 class TodoCarousel extends StatelessWidget {
   final List<TodoEntity> todos;
   final EdgeInsets? itemPadding;

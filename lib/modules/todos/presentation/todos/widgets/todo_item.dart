@@ -7,9 +7,9 @@ import 'package:todo/globals/ui/separators/separators.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
 import 'package:todo/globals/ui/switchs/todo_check_switch.dart';
-
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
 
+/// Classe que representa um item de todo.
 class TodoItem extends StatelessWidget {
   final ValueChanged<TodoEntity>? onTapTodo;
   final ValueChanged<TodoEntity>? onTapDelete;

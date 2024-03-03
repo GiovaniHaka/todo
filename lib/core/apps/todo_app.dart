@@ -5,6 +5,7 @@ import 'package:todo/globals/ui/styles/onze_colors.dart';
 
 final router = TodoAppRouter().router;
 
+/// Classe que representa o aplicativo de tarefas.
 class TodoApp extends StatelessWidget {
   const TodoApp({super.key});
 

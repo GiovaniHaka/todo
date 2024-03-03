@@ -22,6 +22,7 @@ import 'package:todo/modules/todos/presentation/create_todo/controllers/create_t
 import 'package:todo/services/file_picker/domain/models/picked_file_entity.dart';
 import 'package:todo/services/file_picker/presentation/select_file_form_field.dart';
 
+/// Classe que representa a tela de criação de um todo.
 class CreateTodoScreen extends StatefulWidget {
   final CreateTodoController createTodoController;
 

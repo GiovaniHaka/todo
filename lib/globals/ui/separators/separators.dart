@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/globals/constants/separator_constants.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 
+/// Classe que representa um separador vertical.
 class VerticalSeparator extends StatelessWidget {
   final bool showDivider;
   final double height;
@@ -65,6 +66,7 @@ class VerticalSeparator extends StatelessWidget {
   }) : super(key: key);
 }
 
+/// Classe que representa um separador horizontal.
 class HorizontalSeparator extends StatelessWidget {
   final bool showDivider;
   final double width;

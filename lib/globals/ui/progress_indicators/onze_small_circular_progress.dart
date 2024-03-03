@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/globals/ui/progress_indicators/onze_circular_progress.dart';
 
+/// Classe que representa um CircularProgressIndicator pequeno do Onze.
 class OnzeSmallCircularProgress extends StatelessWidget {
   final bool? center;
   final Color? color;

@@ -15,6 +15,7 @@ abstract class CreateTodoUsecase {
   });
 }
 
+/// Classe que implementa o caso de uso de criação de um todo.
 class CreateTodoUsecaseImpl implements CreateTodoUsecase {
   final TodoRepository _repository;
   final OnzeDeviceInfoService _deviceInfoService;

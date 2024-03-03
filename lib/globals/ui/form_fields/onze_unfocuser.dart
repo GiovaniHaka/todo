@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+/// Classe que representa um componente que remove o foco de um campo de texto.
 class OnzeUnfocuser extends StatefulWidget {
   final Widget? child;
   final double minScrollDistance;

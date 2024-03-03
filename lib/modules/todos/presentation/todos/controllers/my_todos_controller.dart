@@ -6,6 +6,7 @@ import 'package:todo/globals/states/onze_state.dart';
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
 import 'package:todo/modules/todos/domain/usecases/stream_todos_usecase.dart';
 
+/// Classe que representa o controlador de meus todos.
 class MyTodosController {
   final StreamTodosUsecase _streamTodos;
 

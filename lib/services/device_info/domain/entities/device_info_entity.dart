@@ -1,3 +1,11 @@
+/// Classe que representa as informações de um dispositivo.
+///
+/// Construtor da classe [DeviceInfoEntity].
+///
+/// [deviceId] é o ID do dispositivo.
+/// [deviceName] é o nome do dispositivo.
+/// [deviceOs] é o sistema operacional do dispositivo.
+/// [osVersion] é a versão do sistema operacional do dispositivo.
 class DeviceInfoEntity {
   final String deviceId;
   final String deviceName;

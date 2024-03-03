@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:todo/globals/failures/failure.dart';
 import 'package:todo/modules/todos/domain/usecases/delete_todo_usecase.dart';
 
+/// Classe que representa o controlador de deleção de um todo.
 class DeleteTodoController {
   final DeleteTodoUsecase _deleteTodoUseCase;
 

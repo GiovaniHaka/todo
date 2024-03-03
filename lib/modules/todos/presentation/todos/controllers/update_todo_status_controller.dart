@@ -3,6 +3,7 @@ import 'package:todo/globals/failures/failure.dart';
 import 'package:todo/modules/todos/domain/enums/todo_status.dart';
 import 'package:todo/modules/todos/domain/usecases/update_todo_usecase.dart';
 
+/// Classe que representa o controlador de atualização de status de um todo.
 class UpdateTodoStatusController {
   final UpdateTodoUsecase _updateTodoUseCase;
 

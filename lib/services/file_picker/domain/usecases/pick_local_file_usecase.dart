@@ -8,6 +8,7 @@ abstract class PickLocalFileUsecase {
   Future<List<PickedFile>> manyFiles();
 }
 
+/// Classe que representa a implementação do [PickLocalFileUsecase].
 class PickLocalFileUsecaseImp implements PickLocalFileUsecase {
   final LocalFilePickerSource _source;
 

@@ -4,14 +4,18 @@ import 'package:todo/globals/failures/failure.dart';
 import 'package:todo/services/storage/domain/entities/storage_file_entity.dart';
 import 'package:todo/services/storage/domain/entities/upload_file_entity.dart';
 
+/// Classe que representa a fonte de dados do storage de arquivos.
 abstract class FileStorageSource {
+  /// Faz o upload de um arquivo para o storage.
   Future<Either<Failure, StorageFileEntity>> uploadSingleFile(
     UploadFileEntity request,
   );
-
+  
+  /// Deleta um arquivo do storage.
   Future<Either<Failure, void>> deleteFile(String url);
 }
 
+/// Classe que representa a implementação do [FileStorageSource].
 class FileStorageSourceImp implements FileStorageSource {
   late FirebaseStorage _storage;
 

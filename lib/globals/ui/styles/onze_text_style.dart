@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// Classe que representa os estilos de texto do Onze.
 class OnzeTextStyle {
   static const Color color = Colors.black;
 

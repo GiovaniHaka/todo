@@ -4,6 +4,7 @@ import 'package:todo/globals/ui/progress_indicators/onze_circular_progress.dart'
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
 
+/// Classe que representa um botão preenchido pequeno do Onze.
 class OnzeSmallFilledButton extends StatelessWidget {
   final Function()? onTap;
   final Color backgroundColor;

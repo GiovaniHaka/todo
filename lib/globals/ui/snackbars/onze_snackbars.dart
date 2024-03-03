@@ -3,6 +3,7 @@ import 'package:todo/globals/constants/padding_constants.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
 
+/// Classe base para os SnackBars do Onze.
 class BaseSnackBar extends SnackBar {
   BaseSnackBar({
     Key? key,

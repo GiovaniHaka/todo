@@ -4,6 +4,7 @@ import 'package:todo/services/storage/data/repositories/file_storage_repository.
 import 'package:todo/services/storage/data/sources/file_storage_source.dart';
 import 'package:todo/services/storage/domain/usecases/upload_single_file.dart';
 
+/// Classe que representa o Binder do serviço de armazenamento.
 class StorageServiceBinder implements Binder {
   @override
   void bind() {

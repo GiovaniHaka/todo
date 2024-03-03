@@ -4,6 +4,7 @@ import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
 import 'package:todo/modules/todos/presentation/todos/widgets/todo_item.dart';
 
+/// Classe que representa uma lista de todos.
 class TodoList extends StatelessWidget {
   final List<TodoEntity> todos;
   final ValueChanged<TodoEntity> onTapTodo;

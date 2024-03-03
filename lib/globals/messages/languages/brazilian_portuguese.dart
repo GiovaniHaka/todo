@@ -1,5 +1,6 @@
 import 'package:todo/globals/messages/languages/language.dart';
 
+/// Classe que implementa a interface Language para o idioma Português Brasileiro.
 class BrazilianPortuguese implements Language {
   const BrazilianPortuguese();
 

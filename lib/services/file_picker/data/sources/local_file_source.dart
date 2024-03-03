@@ -10,6 +10,7 @@ abstract class LocalFilePickerSource {
   Future<List<PickedFile>> pickManyFiles();
 }
 
+/// Classe que representa a implementação do [LocalFilePickerSource].
 class LocalFilePickerSourceImp implements LocalFilePickerSource {
   @override
   Future<PickedFile?> pickSingleFile() async {

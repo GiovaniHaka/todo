@@ -1,3 +1,4 @@
+/// Esta é uma classe abstrata que representa um idioma.
 abstract class Language {
   /// [NotFound]
   String get notFoundRouteTitle;

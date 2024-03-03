@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:todo/core/binders/binder.dart';
 import 'package:todo/modules/todos/presentation/create_todo/screens/create_todo_screen.dart';
 
+/// Classe responsável por definir as rotas do módulo de todos.
 class TodoRouter {
   static const createTodo = '/create-todo';
 

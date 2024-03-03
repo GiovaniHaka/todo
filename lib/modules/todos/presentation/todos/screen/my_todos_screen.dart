@@ -17,6 +17,7 @@ import 'package:todo/modules/todos/presentation/todos/controllers/update_todo_st
 import 'package:todo/modules/todos/presentation/todos/widgets/todo_list.dart';
 import 'package:todo/modules/todos/todo_router.dart';
 
+/// Classe que representa a tela de meus todos.
 class MyTodosScreen extends StatefulWidget {
   final MyTodosController controller;
   final UpdateTodoStatusController updateStatusController;
