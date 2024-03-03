@@ -73,4 +73,14 @@ class TodoDatasourceRemoteImpl implements TodoDatasource {
       return Left(Failure(error: e, stackTrace: s));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> delete(String todoId) async {
+    try {
+      await _firestore.collection('todos').doc(todoId).delete();
+      return const Right(null);
+    } catch (e, s) {
+      return Left(Failure(error: e, stackTrace: s));
+    }
+  }
 }

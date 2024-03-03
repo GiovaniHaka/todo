@@ -5,9 +5,11 @@ import 'package:todo/modules/todos/data/datasources/todo_datasource.dart';
 import 'package:todo/modules/todos/data/repositories/todo_repository_impl.dart';
 import 'package:todo/modules/todos/domain/repositories/todo_repository.dart';
 import 'package:todo/modules/todos/domain/usecases/create_todo_usecase.dart';
+import 'package:todo/modules/todos/domain/usecases/delete_todo_usecase.dart';
 import 'package:todo/modules/todos/domain/usecases/stream_todos_usecase.dart';
 import 'package:todo/modules/todos/domain/usecases/update_todo_usecase.dart';
 import 'package:todo/modules/todos/presentation/create_todo/controllers/create_todo_controller.dart';
+import 'package:todo/modules/todos/presentation/todos/controllers/delete_todo_controller.dart';
 import 'package:todo/modules/todos/presentation/todos/controllers/my_todos_controller.dart';
 import 'package:todo/modules/todos/presentation/todos/controllers/update_todo_status_controller.dart';
 
@@ -47,6 +49,12 @@ class TodoBinder implements Binder {
       ),
     );
 
+    getIt.registerFactory<DeleteTodoUsecase>(
+      () => DeleteTodoUsecaseImpl(
+        repository: getIt.get(),
+      ),
+    );
+
     /// [Controllers]
     getIt.registerFactory<CreateTodoController>(
       () => CreateTodoController(
@@ -63,6 +71,12 @@ class TodoBinder implements Binder {
     getIt.registerFactory<UpdateTodoStatusController>(
       () => UpdateTodoStatusController(
         updateTodoUseCase: getIt.get(),
+      ),
+    );
+
+    getIt.registerFactory<DeleteTodoController>(
+      () => DeleteTodoController(
+        deleteTodoUseCase: getIt.get(),
       ),
     );
   }

@@ -9,6 +9,8 @@ abstract class TodoDatasource {
 
   Stream<Either<Failure, List<TodoModel>>> streamTodos(String deviceId);
 
+  Future<Either<Failure, void>> delete(String todoId);
+
   Future<Either<Failure, void>> updateStatus({
     required String id,
     required TodoStatus status,
