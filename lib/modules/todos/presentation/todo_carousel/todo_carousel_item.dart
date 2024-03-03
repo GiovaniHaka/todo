@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:todo/globals/constants/image_constants.dart';
 import 'package:todo/globals/constants/padding_constants.dart';
 import 'package:todo/globals/constants/radius_constants.dart';
+import 'package:todo/globals/extensions/string_extensions.dart';
 import 'package:todo/globals/ui/cards/onze_glassmorpism_container.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
@@ -61,7 +62,7 @@ class TodoCarouselItem extends StatelessWidget {
                           style: OnzeTextStyle.titleMedium(),
                         ),
                         Text(
-                          DateFormat.MMMEd().format(todo.date),
+                          DateFormat.MMMEd().format(todo.date).capitalize(),
                           style: OnzeTextStyle.bodyMedium(),
                         ),
                       ],

@@ -8,6 +8,8 @@ abstract class Language {
   String get buttonCreateTodo;
   String get buttonPickImage;
   String get buttonRemove;
+  String get buttonChoose;
+  String get buttonChange;
 
   /// [Create]
   String get createTodo;
@@ -17,6 +19,7 @@ abstract class Language {
   String get title;
   String get todos;
   String get todo;
+  String get date;
 
   /// [Hints]
   String get hintTodoTitle;
@@ -30,4 +33,7 @@ abstract class Language {
 
   /// [Empty]
   String get emptyTodos;
+
+  /// [What]
+  String get whatIsTodoDate;
 }

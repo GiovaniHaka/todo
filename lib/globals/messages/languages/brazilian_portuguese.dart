@@ -52,4 +52,16 @@ class BrazilianPortuguese implements Language {
 
   @override
   String get buttonRemove => 'Remover';
+
+  @override
+  String get whatIsTodoDate => 'Quando você quer fazer essa tarefa?';
+
+  @override
+  String get date => 'Data';
+
+  @override
+  String get buttonChoose => 'Escolher';
+  
+  @override
+  String get buttonChange => 'Alterar';
 }

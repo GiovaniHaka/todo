@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:todo/core/binders/binder.dart';
+import 'package:todo/globals/constants/image_constants.dart';
 import 'package:todo/globals/constants/padding_constants.dart';
 import 'package:todo/globals/constants/radius_constants.dart';
 import 'package:todo/globals/messages/messages.dart';
@@ -51,10 +52,13 @@ class _SelectFileTypeModalState extends State<SelectFileTypeModal> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(smallPadding),
+      padding: const EdgeInsets.all(regularPadding),
       decoration: BoxDecoration(
-        color: OnzeColors.greyLightest,
         borderRadius: BorderRadius.circular(regularRadius),
+        border: Border.all(
+          color: OnzeColors.greyLight,
+          width: 1.3,
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,10 +70,10 @@ class _SelectFileTypeModalState extends State<SelectFileTypeModal> {
               height: 60,
               child: Builder(builder: (context) {
                 if (file == null) {
-                  return const Icon(
-                    Icons.image,
-                    color: OnzeColors.greyRegular,
-                    size: 30,
+                  // return const SizedBox.shrink();
+                  return Image.asset(
+                    ImageConstants.imagePlaceholder,
+                    fit: BoxFit.cover,
                   );
                 }
 
@@ -81,16 +85,19 @@ class _SelectFileTypeModalState extends State<SelectFileTypeModal> {
             ),
           ),
           if (file != null) ...[
-            const HorizontalSeparator.verySmall(),
+            const HorizontalSeparator.small(),
             OnzeSmallFilledButton.secondary(
               onTap: handleRemoveImage,
+              icon: Icons.close,
               text: Messages.instance.lang.buttonRemove,
             ),
-            const Spacer(),
           ],
-          OnzeSmallFilledButton.primary(
+          const Spacer(),
+          OnzeSmallFilledButton.secondary(
             onTap: handlePickImage,
-            text: Messages.instance.lang.buttonPickImage,
+            text: file == null
+                ? Messages.instance.lang.buttonChoose
+                : Messages.instance.lang.buttonChange,
           )
         ],
       ),
