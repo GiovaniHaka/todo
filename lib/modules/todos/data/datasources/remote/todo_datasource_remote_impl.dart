@@ -6,6 +6,7 @@ import 'package:todo/globals/failures/failure.dart';
 import 'package:todo/modules/todos/data/datasources/todo_datasource.dart';
 import 'package:todo/modules/todos/data/models/create_todo_model.dart';
 import 'package:todo/modules/todos/data/models/todo_model.dart';
+import 'package:todo/modules/todos/domain/enums/todo_status.dart';
 
 class TodoDatasourceRemoteImpl implements TodoDatasource {
   final FirebaseFirestore _firestore;
@@ -54,6 +55,22 @@ class TodoDatasourceRemoteImpl implements TodoDatasource {
       );
     } catch (e, s) {
       yield Left(Failure(error: e, stackTrace: s));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> updateStatus({
+    required String id,
+    required TodoStatus status,
+  }) async {
+    try {
+      await _firestore.collection('todos').doc(id).update({
+        'status': status.status,
+      });
+
+      return const Right(null);
+    } catch (e, s) {
+      return Left(Failure(error: e, stackTrace: s));
     }
   }
 }
