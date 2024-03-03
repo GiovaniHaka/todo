@@ -61,7 +61,10 @@ class BrazilianPortuguese implements Language {
 
   @override
   String get buttonChoose => 'Escolher';
-  
+
   @override
   String get buttonChange => 'Alterar';
+
+  @override
+  String get myTodos => 'Minhas tarefas';
 }

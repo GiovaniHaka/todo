@@ -15,11 +15,12 @@ abstract class Language {
   String get createTodo;
 
   /// [Substantives]
-  String get details;
-  String get title;
-  String get todos;
-  String get todo;
   String get date;
+  String get details;
+  String get myTodos;
+  String get title;
+  String get todo;
+  String get todos;
 
   /// [Hints]
   String get hintTodoTitle;
