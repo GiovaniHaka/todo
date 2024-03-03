@@ -5,6 +5,7 @@ import 'package:todo/globals/ui/buttons/onze_text_button.dart';
 import 'package:todo/globals/ui/separators/separators.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
 
+/// Tela que representa uma rota não encontrada.
 class RouteNotFoundScreen extends StatelessWidget {
   final Function()? onTap;
 

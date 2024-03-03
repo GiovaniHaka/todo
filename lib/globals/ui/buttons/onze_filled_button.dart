@@ -5,6 +5,7 @@ import 'package:todo/globals/ui/separators/separators.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
 
+/// Classe que representa um botão preenchido do Onze.
 class OnzeFilledButton extends StatelessWidget {
   final Function()? onTap;
   final Color backgroundColor;

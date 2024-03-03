@@ -5,6 +5,7 @@ import 'package:todo/modules/todos/domain/usecases/create_todo_usecase.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 import 'package:todo/services/file_picker/domain/models/picked_file_entity.dart';
 
+/// Classe que representa o controlador de criação de um todo.
 class CreateTodoController {
   final CreateTodoUsecase _createTodoUsecase;
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/globals/constants/padding_constants.dart';
 import 'package:todo/globals/constants/radius_constants.dart';
 
+/// Classe que representa um container com efeito de vidro.
 class OnzeGlassMorphismContainer extends StatelessWidget {
   final Widget child;
   final Color color;

@@ -11,6 +11,7 @@ import 'package:todo/globals/ui/switchs/todo_check_switch.dart';
 
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
 
+/// Classe que representa um item do carrossel de todos.
 class TodoCarouselItem extends StatelessWidget {
   final TodoEntity todo;
   final ValueChanged<TodoEntity> onTapCompleteTodo;

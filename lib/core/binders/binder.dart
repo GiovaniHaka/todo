@@ -6,8 +6,11 @@ import 'package:todo/services/storage/storage_service_binder.dart';
 
 final getIt = GetIt.instance;
 
+/// Classe abstrata que define um Binder.
+/// Um Binder é responsável por declarar as classes utilizadas na injeção de dependência.
 abstract class Binder {
   void bind();
+
   void dispose();
 }
 
@@ -22,7 +25,9 @@ class AppBinder {
     StorageServiceBinder(),
   ];
 
-  setBinders() {
+  /// Configura os binders.
+  /// Itera sobre cada binder na lista de binders e chama o método `bind()`.
+  void setBinders() {
     for (final binder in binders) {
       binder.bind();
     }

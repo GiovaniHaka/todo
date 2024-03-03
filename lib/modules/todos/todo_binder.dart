@@ -13,6 +13,7 @@ import 'package:todo/modules/todos/presentation/todos/controllers/delete_todo_co
 import 'package:todo/modules/todos/presentation/todos/controllers/my_todos_controller.dart';
 import 'package:todo/modules/todos/presentation/todos/controllers/update_todo_status_controller.dart';
 
+/// Classe responsável por realizar a injeção de dependência do módulo de todos.
 class TodoBinder implements Binder {
   @override
   void bind() {

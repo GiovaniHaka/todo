@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+/// Classe que representa uma entidade de arquivo de armazenamento.
 class StorageFileEntity {
   final String path;
   final String url;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 
+/// Classe que representa um switch de tarefas.
 class TodoCheckSwitch extends StatelessWidget {
   final bool value;
   final ValueChanged<bool>? onChanged;

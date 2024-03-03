@@ -6,6 +6,7 @@ import 'package:todo/modules/todos/data/models/create_todo_model.dart';
 import 'package:todo/modules/todos/data/models/todo_model.dart';
 import 'package:todo/modules/todos/domain/enums/todo_status.dart';
 
+/// Classe que representa a implementação remota do datasource de todos.
 class TodoDatasourceRemoteImpl implements TodoDatasource {
   final FirebaseFirestore _firestore;
 

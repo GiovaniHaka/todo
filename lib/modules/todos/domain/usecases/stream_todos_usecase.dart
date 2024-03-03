@@ -8,6 +8,7 @@ abstract class StreamTodosUsecase {
   Stream<Either<Failure, List<TodoEntity>>> call();
 }
 
+/// Classe que implementa o caso de uso de stream de todos.
 class StreamTodosUsecaseImpl implements StreamTodosUsecase {
   final TodoRepository _repository;
   final OnzeDeviceInfoService _deviceInfoService;

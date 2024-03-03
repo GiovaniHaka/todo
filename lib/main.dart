@@ -8,6 +8,7 @@ import 'package:todo/services/device_info/onze_device_info_service.dart';
 import 'firebase_options.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+/// Função principal que inicializa o aplicativo.
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

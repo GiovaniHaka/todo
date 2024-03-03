@@ -12,6 +12,7 @@ import 'package:todo/globals/ui/styles/onze_colors.dart';
 import 'package:todo/services/file_picker/domain/models/picked_file_entity.dart';
 import 'package:todo/services/file_picker/domain/usecases/pick_local_file_usecase.dart';
 
+/// Classe que representa um modal para seleção de tipo de arquivo.
 class SelectFileTypeModal extends StatefulWidget {
   final ValueChanged<PickedFile?> onChangeFile;
 

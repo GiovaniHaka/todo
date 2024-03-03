@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/globals/constants/padding_constants.dart';
 
+/// Barra de navegação inferior personalizada.
 class OnzeBottomAppBar extends StatelessWidget {
   final Widget? child;
   final EdgeInsetsGeometry? padding;

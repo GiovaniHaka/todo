@@ -8,6 +8,7 @@ abstract class DeleteTodoUsecase {
   });
 }
 
+/// Classe que implementa o caso de uso de deleção de um todo.
 class DeleteTodoUsecaseImpl implements DeleteTodoUsecase {
   final TodoRepository _repository;
 

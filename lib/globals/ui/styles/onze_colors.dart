@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
+/// Classe que representa as cores do Onze.
 class OnzeColors {
   static bool isDark =
       SchedulerBinding.instance.platformDispatcher.platformBrightness ==

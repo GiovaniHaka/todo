@@ -5,6 +5,7 @@ import 'package:todo/globals/ui/screens/route_not_found_screen.dart';
 import 'package:todo/modules/todos/presentation/todos/screen/my_todos_screen.dart';
 import 'package:todo/modules/todos/todo_router.dart';
 
+/// Classe responsável por definir as rotas da aplicação Todo.
 class TodoAppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
   static const _root = '/';

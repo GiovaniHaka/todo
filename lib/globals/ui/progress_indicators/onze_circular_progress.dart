@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
 
+/// Classe que representa um CircularProgressIndicator do Onze.
 class OnzeCircularProgress extends CircularProgressIndicator {
   const OnzeCircularProgress({
     Key? key,

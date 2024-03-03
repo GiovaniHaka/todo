@@ -10,6 +10,7 @@ enum OnzeIconButtonSize {
   medium,
 }
 
+/// Classe que representa um botão de ícone do Onze.
 class OnzeIconButton extends StatelessWidget {
   final Function()? onTap;
   final IconData icon;

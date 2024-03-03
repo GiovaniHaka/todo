@@ -4,6 +4,7 @@ import 'package:todo/globals/ui/progress_indicators/onze_circular_progress.dart'
 import 'package:todo/globals/ui/separators/separators.dart';
 import 'package:todo/globals/ui/styles/onze_text_style.dart';
 
+/// Classe que representa uma tela de carregamento.
 class LoadingView extends StatelessWidget {
   final String message;
 

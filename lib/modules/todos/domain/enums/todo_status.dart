@@ -1,6 +1,7 @@
 const _pending = 'pending';
 const _completed = 'completed';
 
+/// Enum que representa o status de uma tarefa.
 enum TodoStatus {
   pending(_pending),
   completed(_completed),

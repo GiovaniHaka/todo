@@ -4,6 +4,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:todo/services/device_info/domain/entities/device_info_entity.dart';
 
+/// Classe responsável por prover informações do dispositivo.
 class OnzeDeviceInfoService {
   final _deviceInfoPlugin = DeviceInfoPlugin();
 
