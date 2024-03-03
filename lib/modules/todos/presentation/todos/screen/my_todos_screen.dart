@@ -3,6 +3,9 @@ import 'package:rx_notifier/rx_notifier.dart';
 
 import 'package:todo/globals/messages/messages.dart';
 import 'package:todo/globals/states/onze_state.dart';
+import 'package:todo/globals/ui/app_bars/onze_app_bar.dart';
+import 'package:todo/globals/ui/styles/onze_colors.dart';
+import 'package:todo/globals/ui/views/empty_view.dart';
 import 'package:todo/globals/ui/views/failure_view.dart';
 import 'package:todo/globals/ui/views/loading_view.dart';
 import 'package:todo/modules/todos/domain/entities/todo_entity.dart';
@@ -61,9 +64,9 @@ class _MyTodosScreenState extends State<MyTodosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Minhas tarefas'),
+      appBar: OnzeAppBar(
+        backgroundColor: OnzeColors.primaryRegular,
+        titleText: Messages.instance.lang.myTodos,
       ),
       body: RxBuilder(
         builder: (_) {
@@ -75,8 +78,8 @@ class _MyTodosScreenState extends State<MyTodosScreen> {
           }
 
           if (state is Empty) {
-            return Center(
-              child: Text(Messages.instance.lang.emptyTodos),
+            return EmptyView(
+              message: Messages.instance.lang.emptyTodos,
             );
           }
 
@@ -120,8 +123,9 @@ class _MyTodosScreenState extends State<MyTodosScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        backgroundColor: OnzeColors.primaryRegular,
         onPressed: handleCreateTodo,
-        tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
