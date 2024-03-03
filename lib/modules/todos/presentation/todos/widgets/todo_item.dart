@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo/globals/constants/padding_constants.dart';
+import 'package:todo/globals/extensions/string_extensions.dart';
 import 'package:todo/globals/ui/buttons/onze_icon_button.dart';
 import 'package:todo/globals/ui/separators/separators.dart';
 import 'package:todo/globals/ui/styles/onze_colors.dart';
@@ -61,7 +62,7 @@ class TodoItem extends StatelessWidget {
                   if (!isCompleted) ...[
                     const VerticalSeparator.text(),
                     Text(
-                      DateFormat.MMMEd().format(todo.date),
+                      DateFormat.MMMEd().format(todo.date).capitalize(),
                       style: OnzeTextStyle.labelMedium().copyWith(
                         color: OnzeColors.greyDark,
                       ),
